@@ -1,0 +1,56 @@
+.container {
+	background-color: azure;
+	margin-top: 1px;
+}
+.createFormContanier {
+	border: 2px solid #ccc;
+	margin: 10px auto;
+	background-color: aliceblue
+}
+.active { 
+	background-color: #007bff;
+	border: 1px solid #007bff;
+	color: #fff;
+	padding: 10px;
+	border-radius: 4px;
+}
+.active a { 
+	color: #fff;
+}
+.nav-item{
+	padding: 10px;
+}
+.nav-item a:hover {
+	text-decoration: none;
+}
+.btn {cursor: pointer;}
+.row {
+	margin-top: 15px;
+}
+
+.noData td {
+	font-weight: bold;
+	text-align: center;
+	border-bottom: 1px solid rgb(233, 236, 239); 
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+	cursor: not-allowed;
+	}
+
+.table {
+	background-color: aliceblue;
+}
+.text-muted {
+    color: #868e96!important;
+    font-family: cursive;
+    font-weight: bold;
+}
+.h3, h3 {
+    font-size: 2.5rem;
+}
+.h2, h2 {
+    font-size: 2rem;
+    color: cadetblue;
+    font-style: italic;
+}

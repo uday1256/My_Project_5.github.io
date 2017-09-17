@@ -1,0 +1,72 @@
+<div class="row" ng->
+	<div class="col-md-12">
+		<button type="button" class="btn btn-primary pull-right" ng-click="initCreateGame()">Create Game</button>
+	</div>
+	<br/>
+	<br/>
+	<div class="col-md-12" ng-if="enableGameForm" style='margin-top:10px;'>
+		<div class="createFormContanier">
+			<div class="col-md-12">
+			    <h2>Game Management Form</h2>
+			    <form name="form" ng-submit="createGameForm()" role="form">
+			    	<div class="row">
+			    	<div class="col-md-6">
+			        <div class="form-group" >
+			            <label for="username">Game name</label>
+			            <input type="text" name="gameName" id="gameName" class="form-control" ng-model="gameModel.gameName" required />
+			        </div>
+			        <div class="form-group">
+			            <label for="username">Player Names <span ng-show="disabledSubmit" style="color:red;">Please select two players *</span></label>
+			            <select ng-change="changingPlayer(gameModel.playerNames)" class="form-control" name="players" multiple ng-model="gameModel.playerNames" ng-options="c.username as c.username for c in playerNameList">
+						</select>
+			        </div>
+			        
+			        </div>
+			        <div class="col-md-6">
+			        	<div class="form-group">
+				            <label for="username">Winner name</label>
+				           <!--  <input type="text" name="winnerName" id="winnerName" class="form-control"  required /> -->
+				            <select class="form-control" ng-model="gameModel.winnerName" required ng-options="c as c for c in winnerNameList">
+				            </select>
+				            <!-- <option ng-repeat="message in winnerNameList">{{message.username}}</option> -->
+				            <input type='hidden' name='usercount' ng-model="gameModel.usercount" >
+			        	</div>
+			       	
+			        </div>
+			      
+			        </div>
+			        <div class="form-actions">
+			            <button type="submit" ng-disabled="disabledSubmit" class="btn btn-primary">Submit</button>
+			            <button type="button" ng-click='closeForm()' class="btn btn-danger">Cancel</button>
+			        </div>
+			    </form>
+			</br>
+			</div>
+		</div>		
+	</div>
+	<br/>
+	<div class="col-md-12">
+		<table class="table">
+			<thead>
+			<tr>
+				<th>#</th>
+				<th>Game Name</th>
+				<th>Player Names</th>
+				<th>Winner Name</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="game in gameList track by $index">
+				<th scope="row">{{$index+1}}</th>
+				<td>{{game.gameName}}</td>
+				<td>{{game.playerNames.toString()}}</td>
+				<td>{{game.winnerName}}</td>
+			</tr>
+			<tr ng-show="gameList == null"  class="noData"  >
+				
+				<td colspan="5">No data available</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

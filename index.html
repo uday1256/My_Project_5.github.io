@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html ng-app="poolTrack">
+
+<head>
+  <!-- SCROLLS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <!-- SPELLS -->
+<!--   // <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  // <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>  
+  <script src="js/app.js"></script>
+</head>
+
+<!-- define angular controller -->
+<body ng-controller="mainController">
+
+ <div class="container">
+
+  <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class='nav-item' ng-class="{ active: isActive('/') }">
+              <a href="#/">Player</a>
+            </li>
+            <li class='nav-item' ng-class="{ active: isActive('/gameManagement') }">
+              <a href="#/gameManagement" >Game Management</a>
+            </li>
+            <li class='nav-item' ng-class="{ active: isActive('/leaderboard') }">
+              <a href="#/leaderboard"  >Leader board</a>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Pool Game Tracking</h3>
+      </div>
+
+  <div id="main">
+    <div class="container">
+      <div ng-view></div>
+    </div>
+  </div>
+  <footer class="text-center">
+  </footer>
+</div>
+</body>
+
+</html>

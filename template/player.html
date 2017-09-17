@@ -1,0 +1,82 @@
+<div class="row" ng->
+	<div class="col-md-12">
+		<button type="button" class="btn btn-primary pull-right" ng-click="initCreatePlayer()">Create Player</button>
+	</div>
+	<br/>
+	<br/>
+	<div class="col-md-12" ng-if="enableCreateForm">
+		<div class="createFormContanier">
+			<div class="col-md-12">
+			    <h2>Create New Player</h2>
+			    <form name="form" ng-submit="createPlayerForm()" role="form">
+			    	<div class="row">
+			    	<div class="col-md-6">
+			        <div class="form-group" ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
+			            <label for="username">First name</label>
+			            <input type="text" name="firstName" id="firstName" class="form-control" ng-model="createPlayer.firstName" required />
+			            <span ng-show="form.firstName.$dirty && form.firstName.$error.required" class="help-block">First name is required</span>
+			        </div>
+			        <div class="form-group" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
+			            <label for="username">Last name</label>
+			            <input type="text" name="lastName" id="Text1" class="form-control" ng-model="createPlayer.lastName" required />
+			            <span ng-show="form.lastName.$dirty && form.lastName.$error.required" class="help-block">Last name is required</span>
+			        </div>
+			        </div>
+			        <div class="col-md-6">
+			        <div class="form-group" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+			            <label for="username">Username</label>
+			            <input type="text" name="username" id="username" class="form-control" ng-model="createPlayer.username" required />
+			            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+			        </div>
+			        <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+			            <label for="password">Password</label>
+			            <input type="password" name="password" id="password" class="form-control" ng-model="createPlayer.password" required />
+			            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+			        </div>
+			        </div>
+			        <div class="col-md-12">
+			        <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+			            <label for="username">Email</label>
+			            <input type="email" name="email" id="email" class="form-control" ng-model="createPlayer.email" required />
+			            <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email is required</span>
+			        </div>
+			        </div>
+			        </div>
+			        <div class="form-actions">
+			            <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Submit</button>
+			            <button type="button" ng-click='closeForm()' class="btn btn-danger">Cancel</button>
+			        </div>
+			    </form>
+			    </br>
+			</div>
+		</div>		
+	</div>
+	<br/>
+	<div class="col-md-12">
+		<table class="table">
+			<thead>
+			<tr>
+				<th>#</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Username</th>
+				<th>Email</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr  ng-repeat="player in players track by $index">
+				<th scope="row">{{$index+1}}</th>
+				<td>{{player.firstName}}</td>
+				<td>{{player.lastName}}</td>
+				<td>{{player.username}}</td>
+				<td>{{player.email}}</td>
+			</tr>
+			<tr ng-show="players.length==0"  class="noData"  >
+				
+				<td colspan="5">No data available</td>
+			</tr>
+
+			</tbody>
+		</table>
+	</div>
+</div>
