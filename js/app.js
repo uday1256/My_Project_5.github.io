@@ -34,11 +34,6 @@
 		$scope.players =[];
 		$scope.enableCreateForm = false;
 		$scope.createPlayer = {};
-		// create a message to display in our view
-		// $scope.players = [{"id": "1", "firstName": "Uday", "lastName":"uday","userName":"uday","email":"@uday"},
-		// 				  {"id": "2", "firstName": "SURESH", "lastName":"KUMAR","userName":"sur","email":"@sur"},
-		// 				  {"id": "3", "firstName": "ram", "lastName":"sway","userName":"ram","email":"@ram"},
-		// 				  {"id": "4", "firstName": "Uday", "lastName":"uday","userName":"uday","email":"@uday"}];
 		var oldData = $localStorage.message;
 		console.log(oldData);
 		if(oldData != null){
@@ -135,9 +130,7 @@
 		            break;
 		        }
 		    }
-		    /*if(setCondition == false){
-				extGameEntries.push($scope.gameModel);		    	
-		    }*/	
+		   
 		    extGameEntries.push($scope.gameModel);		 
         	$localStorage.gameForm = JSON.stringify(extGameEntries);
         	$localStorage.message = JSON.stringify(extPlayerEntries);
@@ -156,10 +149,6 @@
 		     return active;
 		};	
 
-		// $scope.winningList = [{"id": "1", "firstName": "Uday", "lastName":"uday","userName":"uday","email":"@uday"},
-		// 				  {"id": "2", "firstName": "SURESH", "lastName":"KUMAR","userName":"sur","email":"@sur"},
-		// 				  {"id": "3", "firstName": "ram", "lastName":"sway","userName":"ram","email":"@ram"},
-		// 				  {"id": "4", "firstName": "Uday", "lastName":"uday","userName":"uday","email":"@uday"}];
 		var oldData = $localStorage.winningList;
 		console.log(oldData);
 		if(oldData != null){
